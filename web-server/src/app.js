@@ -51,7 +51,7 @@ app.get('/weather', (req, res) => {
 
 app.get('/help/*', (req, res) => {
 	res.render('404', {
-		title: '404 not found',
+		title: '404',
 		error: 'Help article not found',
 		name: 'Chris Lampert'
 	});
@@ -59,7 +59,7 @@ app.get('/help/*', (req, res) => {
 
 app.get('*', (req, res) => {
 	res.render('404', {
-		title: '404 not found',
+		title: '404',
 		error: 'Page not found',
 		name: 'Chris Lampert'
 	});
