@@ -20,5 +20,3 @@ const event = {
 		});
 	}
 };
-
-event.printGuestList();

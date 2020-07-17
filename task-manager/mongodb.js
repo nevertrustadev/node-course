@@ -23,58 +23,35 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 
 	const db = client.db(databaseName);
 
-	// db.collection('users').insertOne({
-	// 	name: 'Christopher Lampert',
-	// 	age: 30
-	// }, (error, result) => {
-	// 	if (error) {
-	// 		return console.log('Unable to insert user');
+    // db.collection('users').updateOne({
+	// 	_id: new ObjectID('5ec638337964e633cc918e27')
+	// }, {
+	// 	$inc: {
+	// 		age: 1
 	// 	}
-	//
-	// 	console.log(result.ops);
-	//
+	// }).then((result) => {
+	// 	console.log(result)
+	// }).catch((error) => {
+	// 	console.log(error);
 	// });
 	//
-	// db.collection('users').insertMany([
-	// 	{
-	// 		name: 'Jen',
-	// 		age: 28
-	// 	}, {
-	// 		name: 'Gunther',
-	// 		age: 27
+	// db.collection('tasks').updateMany({
+	// 	completed: false
+	// }, {
+	// 	$set: {
+	// 		completed: true
 	// 	}
-	// ], (error, result) => {
-	//
-	// 	if (error) {
-	// 		return console.log('Unable to insert documents!');
-	// 	}
-	//
-	// 	console.log(result.ops);
+	// }).then((result) => {
+	// 	console.log(result);
+	// }).catch((error) => {
+	// 	console.log(error)
 	// })
 
 
-	// db.collection('tasks').insertMany([
-	// 	{
-	// 		description: 'Buy milk',
-	// 		completed: true
-	// 	},
-	// 	{
-	// 		description: 'Buy bread',
-	// 		completed: true
-	// 	},
-	// 	{
-	// 		description: 'Buy toilet roll',
-	// 		completed: false
-	// 	}
-	// ], (error, result) => {
-	//
-	// 	if (error) {
-	// 		return console.log('Could not insert tasks!');
-	// 	}
-	//
-	// 	console.log(result.ops);
-	//
-	//
-	// })
+	db.collection('tasks').deleteOne({description: 'Buy milk'}).then((result) => {
+		console.log(result);
+	}).catch((error) => {
+		console.log(error);
+	})
 });
 
