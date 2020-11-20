@@ -101,4 +101,11 @@ router.delete('/users/me', auth, async (req, res) => {
     }
 });
 
+
+// Add Avatar Route
+
+router.post('/users/me/avatar', test, (req, res) => {
+    
+})
+
 module.exports = router;
