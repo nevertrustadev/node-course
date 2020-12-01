@@ -3,6 +3,9 @@ const { update } = require('../models/user');
 const User  = require('../models/user');
 const router = new express.Router();
 const auth = require('../middleware/auth');
+const multer = require('multer');
+
+
 
 // Register New User Route
 router.post('/users', async (req, res) => {
@@ -103,9 +106,12 @@ router.delete('/users/me', auth, async (req, res) => {
 
 
 // Add Avatar Route
+const upload = multer({
+    dest: 'avatars'
+});
 
-router.post('/users/me/avatar', test, (req, res) => {
-    
-})
+router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
+    res.send();
+});
 
 module.exports = router;
